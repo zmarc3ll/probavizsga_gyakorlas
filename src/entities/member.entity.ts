@@ -19,7 +19,6 @@ export default class Members {
   gender: string;
 
   @Column()
-  @IsDate()
   @IsDefined()
   birth_date: string; //Date format YYYY-MM-DD;
 

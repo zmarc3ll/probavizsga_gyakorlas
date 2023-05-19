@@ -32,13 +32,7 @@ export class AppController {
     private readonly appService: AppService,
     private dataSource: DataSource,
   ) {}
-
-  @Get()
-  @Render('index')
-  index() {
-    return { message: 'Welcome to the homepage' };
-  }
-
+  
   @Post('seed/:id')
   @HttpCode(201)
   async exampleDatasSeed(@Body() payments: Payments, @Param('id') memberId: number){
@@ -60,7 +54,7 @@ export class AppController {
   async membersData() {
     const memberRepo = this.dataSource.getRepository(Members);
     const members = await memberRepo.find();
-    return {members: members};
+    return {data: members};
   }
 
   @Post('api/members')
