@@ -2,7 +2,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import Payments from './payments.entity';
 import { Exclude } from 'class-transformer';
-import { Contains, IsDate, IsDefined, IsOptional } from 'class-validator';
+import { Contains, IsDate, IsDefined, IsIn, IsOptional } from 'class-validator';
 
 @Entity()
 export default class Members {
@@ -15,7 +15,7 @@ export default class Members {
 
   @Column()
   @IsOptional()
-  @Contains('M'||'F')
+  @IsIn(['M','F'])
   gender: string;
 
   @Column()
