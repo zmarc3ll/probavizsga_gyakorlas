@@ -54,7 +54,7 @@ export class AppController {
   async membersData() {
     const memberRepo = this.dataSource.getRepository(Members);
     const members = await memberRepo.find();
-    return {data: members};
+    return {members: members};
   }
 
   @Post('api/members')
