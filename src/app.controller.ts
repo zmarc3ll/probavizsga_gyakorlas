@@ -83,7 +83,6 @@ export class AppController {
     }
     const paymentsRepo = this.dataSource.getRepository(Payments);
     const getMonth = await paymentsRepo.createQueryBuilder('payments').where('MONTH(payments.paid_at) = :month AND payments.member_id = :memberId' , { month: now.getMonth()+1, memberId:memberId }).getCount();
-    console.log(getMonth);
     if(getMonth>0) {
       res.status(409).json({ messege: 'Már befizette a hónapban!' });
       return; 
